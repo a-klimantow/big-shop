@@ -7,12 +7,15 @@
             </div>
             <div class="header__center">
                 <div class="header__content">
-                    <h1 class="header__title title">
+                    <h1 class="header__title">
                         <span>Summer</span><br/>
                         Collection
                     </h1>
-                    <p class="header__subtitle title"><span>25%</span> off</p>
-                    <header-button></header-button>
+                    <p class="header__subtitle"><span>25%</span> off</p>
+                        <button class="header__button">
+                            Details
+                            <i class="fas fa-long-arrow-alt-right"></i>
+                        </button>
                 </div>
             </div>
         </div>
@@ -20,16 +23,14 @@
 </template>
 
 <script>
-import Logo from './Logo.vue';
+import Logo from '../Logo.vue';
 import HeaderMenu from './HeaderMenu.vue';
-import HeaderButton from './HeaderButton.vue'
 
 export default {
-    name: 'HelloWorld',
+    name: 'Header',
     components: {
         Logo,
-        HeaderMenu,
-        HeaderButton
+        HeaderMenu
     },
     props: {
         msg: String
@@ -41,7 +42,7 @@ export default {
 <style>
     .header {
         min-height: 100vh;
-        background-image: url('../assets/img/main-bg.jpg');
+        background-image: url('../../assets/img/main-bg.jpg');
         background-repeat: no-repeat;
         background-size: auto 92%;
         background-position: bottom left;
@@ -60,7 +61,7 @@ export default {
         height: 100%;
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0 30%);
         background: 
-        url('../assets/img/pattern-main-bg.png') no-repeat,
+        url('../../assets/img/pattern-main-bg.png') no-repeat,
         linear-gradient(63deg,#1100ff, #aa55f3);
         opacity: .5;
     }
@@ -84,6 +85,11 @@ export default {
         align-items: flex-end;
     }
 
+
+    .header__title, .header__subtitle {
+        font-family: 'Roboto', sans-serif;
+    }
+
     .header__title {
         font-size: 115px;
         line-height: 120px;
@@ -104,6 +110,16 @@ export default {
 
     .header__subtitle span {
         color: #fbf934;
+    }
+
+    .header__button {
+        background-color: rgb(252, 252, 252);
+        color: #151515;
+    }
+
+    .fa-long-arrow-alt-right {
+        color: #7048e2;
+        margin-left: 17px;
     }
 
 </style>
