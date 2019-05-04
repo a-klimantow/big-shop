@@ -3,6 +3,9 @@
         <app-header></app-header>
         <main>
             <product-list class="trendy"></product-list>
+            <brands></brands>
+            <product-list class="showcase"></product-list>
+            <newsletter></newsletter>
         </main>
     </div>
 </template>
@@ -10,12 +13,17 @@
 <script>
     import Header from './components/Header/Header.vue';
     import ProductList from './components/ProductList.vue';
+    import Brands from './components/OurBrands.vue';
+    import Newsletter from './components/Newsletter.vue';
+    
 
     export default {
         name: 'app',
         components: {
         appHeader: Header,
-        ProductList
+        ProductList,
+        Brands,
+        Newsletter
         }
     }
 </script>
@@ -74,4 +82,10 @@
     .trendy {
         margin-top: -40px;
     }
+
+    .showcase {
+        margin-bottom: -40px;
+        z-index: 10;
+    }
+
 </style>

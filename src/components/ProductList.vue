@@ -46,6 +46,7 @@ export default {
         z-index: 10;
         box-shadow: 0 5px 47.5px 2.5px rgba(237, 235, 253, 0.75);
         padding-top: 90px;
+        padding-bottom: 140px;
         text-align: center;
 
     }
