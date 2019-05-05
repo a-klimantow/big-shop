@@ -7,6 +7,7 @@
             <product-list class="showcase" :showMenu="true" :products="watch"></product-list>
             <newsletter></newsletter>
         </main>
+        <app-footer></app-footer>
     </div>
 </template>
 
@@ -17,6 +18,7 @@
     import Newsletter from './components/Newsletter.vue';
     import { bags } from './assets/bags.js';
     import { watch } from './assets/watch.js';
+    import Footer from './components/Footer.vue';
 
     export default {
         name: 'app',
@@ -24,7 +26,8 @@
         appHeader: Header,
         ProductList,
         Brands,
-        Newsletter
+        Newsletter,
+        appFooter: Footer
         },
         data() {
             return {
