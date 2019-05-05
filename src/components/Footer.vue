@@ -105,6 +105,7 @@ export default {
         border: 2px solid #ecebed;
         justify-content: center;
         align-items: center;
+        transition: all .5s ease;
     }
 
     .social__link .fab {
