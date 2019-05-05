@@ -2,9 +2,9 @@
     <div id="app">
         <app-header></app-header>
         <main>
-            <product-list class="trendy"></product-list>
+            <product-list class="trendy" :products="bags"></product-list>
             <brands></brands>
-            <product-list class="showcase"></product-list>
+            <product-list class="showcase" :showMenu="true" :products="watch"></product-list>
             <newsletter></newsletter>
         </main>
     </div>
@@ -15,7 +15,8 @@
     import ProductList from './components/ProductList.vue';
     import Brands from './components/OurBrands.vue';
     import Newsletter from './components/Newsletter.vue';
-    
+    import { bags } from './assets/bags.js';
+    import { watch } from './assets/watch.js';
 
     export default {
         name: 'app',
@@ -24,6 +25,12 @@
         ProductList,
         Brands,
         Newsletter
+        },
+        data() {
+            return {
+                bags: bags,
+                watch: watch
+            }
         }
     }
 </script>
@@ -58,6 +65,12 @@
         border-radius: 30px;
         width: 202px;
         height: 60px;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+        outline: none;
     }
 
     #app {

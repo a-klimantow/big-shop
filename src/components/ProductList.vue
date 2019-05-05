@@ -2,9 +2,21 @@
     <section class="products">
         <div class="container">
             <h2 class="products__title main-title">Trendy Arrivals</h2>
+            <ul class="products-menu"
+                v-if="showMenu">
+                <li v-for="(item, index) in menu" 
+                    :key="item.title">
+                    <a href="#" class="products-menu__link"
+                        :class="{ 'products-menu__link_active': item.isActive }"
+                        @click.prevent="chengeActive(index)">
+                        {{ item.title }}
+                    </a>
+                </li>
+
+            </ul>
             <ul class="products__list">
                 <li class="products__item"
-                    v-for="item in 6" :key="item">
+                    v-for="(item, index) in products" :key="index">
                     <div class="products__item_top">
                         <div>
                             <i class="far fa-heart"></i>
@@ -16,11 +28,11 @@
                         </div>
                     </div>
                     <figure>
-                        <img src="../assets/img/bag-1.jpg" alt="item">
+                        <img :src='"../assets/img/" + item.image + ".jpg"' :alt="item.image">
                         <figcaption>
                             <h3 class="products__item-title">
-                                Black Genuine Leather Bags
-                                <span class="products__price">&#36; 25.20</span>
+                                {{ item.title }}
+                                <span class="products__price">&#36; {{ item.price.toFixed(2) }}</span>
                             </h3>
                         </figcaption>
                     </figure>
@@ -33,6 +45,46 @@
 
 <script>
 export default {
+    props: {
+        showMenu: Boolean,
+        products: Array
+    },
+    data() {
+        return {
+            menu: [
+                {
+                    title: "Fashion",
+                    isActive: false
+                },
+                {
+                    title: "Furnitures",
+                    isActive: false
+                },
+                {
+                    title: "Watches",
+                    isActive: true
+                },
+                {
+                    title: "Mobile",
+                    isActive: false
+                },
+                {
+                    title: "Cloth",
+                    isActive: false
+                },
+                {
+                    title: "Toys",
+                    isActive: false
+                }
+            ]
+        }
+    },
+    methods: {
+        chengeActive(index) {
+            this.menu.map((el) => el.isActive = false);
+            this.menu[index].isActive = true;
+        }
+    }
     
 }
 </script>
@@ -65,6 +117,9 @@ export default {
         padding: 20px;
         position: relative;
         transition: box-shadow .5s ease;
+        min-height: 450px;
+        display: flex;
+        flex-direction: column;
     }
 
     .products__item_top {
@@ -72,9 +127,10 @@ export default {
         justify-content: space-between;
         color: #bbb;
         font-size: 14px;
-        margin-bottom: 20px;
+        margin-bottom: auto;
         opacity: 0;
         transition: opacity .5s ease;
+
     }
 
     .products__item_top div {
@@ -138,5 +194,31 @@ export default {
         opacity: 1;
     }
 
+    .products-menu {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 1105px;
+        border-radius: 50px;
+        min-height: 66px;
+        box-shadow: 0px 5px 47.5px 2.5px rgba(239, 239, 240, .75);
+        margin-bottom: 50px;
+        font-size: 15px;
 
+    }
+
+    .products-menu li {
+        width: 100px;
+        text-align: center;
+    }
+
+    .products-menu__link:hover {
+        color: rgb(179, 148, 250);
+    }
+
+    .products-menu__link_active{
+        font-size: 20px;
+        color: rgb(179, 148, 250);
+        text-shadow: 0px 9px 5px rgba(213, 200, 247, .75);
+    }
 </style>
